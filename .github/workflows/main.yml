@@ -1,0 +1,16 @@
+name: Python
+on:
+  push:
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get my code
+        uses: actions/checkout@v7
+      - name: get python
+        uses: actions/setup-python@v7.1.0
+        with:
+           python-version: '3.10'
+      - name: Run code
+        run: python test.py
