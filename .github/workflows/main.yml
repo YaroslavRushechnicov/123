@@ -8,13 +8,13 @@ jobs:
       matrix:
         os_version: [ubuntu-latest, windows-latest]
         python_verdion: ["3.9", "3.10", "3.13"]
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os_version}}
     steps:
       - name: Get my code
         uses: actions/checkout@v7
       - name: get python
         uses: actions/setup-python@v7.1.0
         with:
-           python-version: '3.10'
+           python-version: ${{matrix.python_verdion}}
       - name: Run code
         run: python test.py
