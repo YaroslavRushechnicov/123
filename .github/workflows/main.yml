@@ -16,5 +16,16 @@ jobs:
         uses: actions/setup-python@v7.1.0
         with:
            python-version: ${{matrix.python_version}}
+      
+      - name: Depend install
+        run: 
+          python -m pip install numpy
       - name: Run code
         run: python test.py
+        
+      - name: Download All Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: .
+          pattern: test.txt
+
