@@ -4,6 +4,10 @@ on:
 
 jobs:
   start:
+    strategy:
+      matrix:
+        os_version: [ubuntu-latest, windows-latest]
+        python_verdion: ["3.9", "3.10", "3.13"]
     runs-on: ubuntu-latest
     steps:
       - name: Get my code
